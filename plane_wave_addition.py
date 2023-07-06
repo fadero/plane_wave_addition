@@ -9,8 +9,8 @@ import math                 #so we can calculate numbers
 theta_d_max = 73.77 #maximum angular range of the lens to simulate (degrees)
 wavelength = 509e-9 #wavelength of waves in a vacuum (m)
 n_medium = 1.406    #refractive index of medium (dimensionless)
-voxel_size = 10e-9  #length of voxel along one dimension (m/px)
-n_voxels = 500      #number of pixels along x axis (px)
+voxel_size = 32e-9  #length of voxel along one dimension (m/px)
+n_voxels = 64      #number of pixels along x axis (px)
 
 ################################################################################
 theta_r_max = np.deg2rad(theta_d_max)   #convert to radians because it's easier
@@ -29,6 +29,8 @@ wave = np.zeros((n_voxels, n_voxels, n_voxels), dtype='complex128')
 
 output = Path('output')         #if there isn't already an output folder...
 output.mkdir(exist_ok=True)     #...then we need to make an output folder!         
+
+print('This runs forever, so don''t forget to stop!')
 
 print('Simulating PSF from random plane waves...', sep='', end='') #progress bar
 
